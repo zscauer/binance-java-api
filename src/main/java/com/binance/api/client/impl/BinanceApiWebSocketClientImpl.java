@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 /**
  * Binance API WebSocket client implementation using OkHttp.
  */
-public class BinanceApiWebSocketClientImpl implements BinanceApiWebSocketClient, Closeable {
+public class BinanceApiWebSocketClientImpl implements BinanceApiWebSocketClient {
 
     private final OkHttpClient client;
 
@@ -98,9 +98,9 @@ public class BinanceApiWebSocketClientImpl implements BinanceApiWebSocketClient,
         final WebSocket webSocket = client.newWebSocket(request, listener);
         return () -> {
             final int code = 1000;
-            listener.onClosing(webSocket, code, null);
-            webSocket.close(code, null);
-            listener.onClosed(webSocket, code, null);
+            listener.onClosing(webSocket, code, "null reason");
+            webSocket.close(code, "null reason");
+            listener.onClosed(webSocket, code, "null reason");
         };
     }
 }

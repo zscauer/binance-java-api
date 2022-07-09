@@ -124,6 +124,13 @@ public interface BinanceApiRestClient {
    */
   List<TickerStatistics> getAll24HrPriceStatistics();
 
+  // + new methods
+  // TODO change windowSize to enum
+  TickerStatistics getWindowPriceChangeStatistics(String symbol, String windowSize);
+
+  List<TickerStatistics> getAllWindowPriceChangeStatistics(String symbols, String windowSize);
+  // - new methods
+
   /**
    * Get Latest price for all symbols.
    */

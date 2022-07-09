@@ -63,6 +63,15 @@ public interface BinanceApiService {
     @GET("/api/v1/ticker/24hr")
     Call<List<TickerStatistics>> getAll24HrPriceStatistics();
 
+    // + new methods
+    // TODO change windowSize to enum
+    @GET("/api/v3/ticker")
+    Call<TickerStatistics> getWindowPriceChangeStatistics(@Query("symbol") String symbol, @Query("windowSize") String windowSize);
+
+    @GET("/api/v3/ticker")
+    Call<List<TickerStatistics>> getAllWindowPriceChangeStatistics(@Query("symbols") String symbols, @Query("windowSize") String windowSize);
+    // - new methods
+
     @GET("/api/v1/ticker/allPrices")
     Call<List<TickerPrice>> getLatestPrices();
 

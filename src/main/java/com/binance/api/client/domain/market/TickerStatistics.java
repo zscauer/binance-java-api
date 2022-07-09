@@ -71,6 +71,11 @@ public class TickerStatistics {
   private String volume;
 
   /**
+   * Sum of (price * volume) for all trades.
+   */
+  private String quoteVolume;
+
+  /**
    * Open time.
    */
   private long openTime;
@@ -181,6 +186,14 @@ public class TickerStatistics {
 
   public void setVolume(String volume) {
     this.volume = volume;
+  }
+
+  public String getQuoteVolume() {
+    return quoteVolume;
+  }
+
+  public void setQuoteVolume(String quoteVolume) {
+    this.quoteVolume = quoteVolume;
   }
 
   public long getOpenTime() {

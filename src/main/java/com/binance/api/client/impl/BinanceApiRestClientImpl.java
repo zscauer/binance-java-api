@@ -99,6 +99,19 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 		return executeSync(binanceApiService.getAll24HrPriceStatistics());
 	}
 
+	// + new methods
+	// TODO change windowSize to enum
+	@Override
+	public TickerStatistics getWindowPriceChangeStatistics(String symbol, String windowSize) {
+		return executeSync(binanceApiService.getWindowPriceChangeStatistics(symbol, windowSize));
+	}
+
+	@Override
+	public List<TickerStatistics> getAllWindowPriceChangeStatistics(String symbols, String windowSize) {
+		return executeSync(binanceApiService.getAllWindowPriceChangeStatistics(symbols, windowSize));
+	}
+	// - new methods
+
 	@Override
 	public TickerPrice getPrice(String symbol) {
 		return executeSync(binanceApiService.getLatestPrice(symbol));

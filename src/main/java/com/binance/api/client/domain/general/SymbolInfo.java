@@ -37,6 +37,8 @@ public class SymbolInfo {
 
   private boolean isMarginTradingAllowed;
 
+  private boolean allowTrailingStop;
+
   private List<SymbolFilter> filters;
 
   public String getSymbol() {
@@ -133,6 +135,14 @@ public class SymbolInfo {
 
   public void setIsMarginTradingAllowed(boolean isMarginTradingAllowed) {
     this.isMarginTradingAllowed = isMarginTradingAllowed;
+  }
+
+  public boolean trailingStopIsAllowed() {
+    return allowTrailingStop;
+  }
+
+  public void setAllowTrailingStop(boolean allowTrailingStop) {
+    this.allowTrailingStop = allowTrailingStop;
   }
 
   public List<SymbolFilter> getFilters() {

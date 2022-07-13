@@ -32,7 +32,7 @@ public class UserDataUpdateEventDeserializerTest {
       UserDataUpdateEvent userDataUpdateEvent = mapper.readValue(accountUpdateJson, UserDataUpdateEvent.class);
       assertEquals(userDataUpdateEvent.getEventType().getEventTypeId(), "outboundAccountPosition");
       assertEquals(userDataUpdateEvent.getEventTime(), 1L);
-      AccountUpdateEvent accountUpdateEvent = userDataUpdateEvent.getAccountUpdateEvent();
+      AccountUpdateEvent accountUpdateEvent = userDataUpdateEvent.getOutboundAccountPositionUpdateEvent();
       for (AssetBalance assetBalance : accountUpdateEvent.getBalances()) {
         if ("ETH".equals(assetBalance.getAsset())) {
           assertEquals(assetBalance.getFree(), "0.10000000");
@@ -70,8 +70,8 @@ public class UserDataUpdateEventDeserializerTest {
       assertEquals(orderTradeUpdateEvent.getOrderStatus(), OrderStatus.CANCELED);
       assertEquals(orderTradeUpdateEvent.getOrderRejectReason(), OrderRejectReason.NONE);
 
-      assertEquals(orderTradeUpdateEvent.getOrderId(), new Long(123456));
-      assertEquals(orderTradeUpdateEvent.getOrderTradeTime(), new Long(1));
+      assertEquals(orderTradeUpdateEvent.getOrderId(), Long.valueOf(123456));
+      assertEquals(orderTradeUpdateEvent.getOrderTradeTime(), Long.valueOf(1));
     } catch (IOException e) {
       fail();
     }

@@ -112,6 +112,10 @@ public interface BinanceApiRestClient {
    */
   List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval);
 
+  // + new method
+  List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval, Integer limit);
+  // - new method
+
   /**
    * Get 24 hour price change statistics.
    *

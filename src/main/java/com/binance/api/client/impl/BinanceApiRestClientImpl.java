@@ -126,6 +126,13 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 		return executeSync(binanceApiService.getLatestPrice(symbol));
 	}
 
+	// + new method
+	@Override
+	public List<TickerPrice> getPrices(String symbols) {
+		return executeSync(binanceApiService.getLatestPrices(symbols));
+	}
+	// - new method
+
 	@Override
 	public List<TickerPrice> getAllPrices() {
 		return executeSync(binanceApiService.getLatestPrices());
@@ -200,21 +207,25 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 
 	@Override
 	public CancelOrderListResponse cancelOrderList(CancelOrderListRequest cancelOrderListRequest) {
-		return executeSync(binanceApiService.cancelOrderList(cancelOrderListRequest.getSymbol(), cancelOrderListRequest.getOrderListId(),
+		return executeSync(binanceApiService.cancelOrderList(cancelOrderListRequest.getSymbol(),
+				cancelOrderListRequest.getOrderListId(),
 				cancelOrderListRequest.getListClientOrderId(), cancelOrderListRequest.getNewClientOrderId(),
 				cancelOrderListRequest.getRecvWindow(), cancelOrderListRequest.getTimestamp()));
 	}
 
 	@Override
 	public OrderList getOrderListStatus(OrderListStatusRequest orderListStatusRequest) {
-		return executeSync(binanceApiService.getOrderListStatus(orderListStatusRequest.getOrderListId(), orderListStatusRequest.getOrigClientOrderId(),
+		return executeSync(binanceApiService.getOrderListStatus(orderListStatusRequest.getOrderListId(),
+				orderListStatusRequest.getOrigClientOrderId(),
 				orderListStatusRequest.getRecvWindow(), orderListStatusRequest.getTimestamp()));
 	}
 
 	@Override
 	public List<OrderList> getAllOrderList(AllOrderListRequest allOrderListRequest) {
-		return executeSync(binanceApiService.getAllOrderList(allOrderListRequest.getFromId(), allOrderListRequest.getStartTime(),
-				allOrderListRequest.getEndTime(), allOrderListRequest.getLimit(), allOrderListRequest.getRecvWindow(), allOrderListRequest.getTimestamp()));
+		return executeSync(
+				binanceApiService.getAllOrderList(allOrderListRequest.getFromId(), allOrderListRequest.getStartTime(),
+						allOrderListRequest.getEndTime(), allOrderListRequest.getLimit(),
+						allOrderListRequest.getRecvWindow(), allOrderListRequest.getTimestamp()));
 	}
 
 	@Override
@@ -258,7 +269,8 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 
 	@Override
 	public DustTransferResponse dustTranfer(List<String> asset) {
-		return executeSync(binanceApiService.dustTransfer(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis()));
+		return executeSync(binanceApiService.dustTransfer(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
+				System.currentTimeMillis()));
 	}
 
 	@Override

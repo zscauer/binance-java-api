@@ -25,10 +25,10 @@ public interface BinanceApiService {
 
     // General endpoints
 
-    @GET("/api/v1/ping")
+    @GET("/api/v3/ping")
     Call<Void> ping();
 
-    @GET("/api/v1/time")
+    @GET("/api/v3/time")
     Call<ServerTime> getServerTime();
 
     @GET("/api/v3/exchangeInfo")
@@ -39,28 +39,28 @@ public interface BinanceApiService {
 
     // Market data endpoints
 
-    @GET("/api/v1/depth")
+    @GET("/api/v3/depth")
     Call<OrderBook> getOrderBook(@Query("symbol") String symbol, @Query("limit") Integer limit);
 
     @GET("/api/v1/trades")
     Call<List<TradeHistoryItem>> getTrades(@Query("symbol") String symbol, @Query("limit") Integer limit);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
-    @GET("/api/v1/historicalTrades")
+    @GET("/api/v3/historicalTrades")
     Call<List<TradeHistoryItem>> getHistoricalTrades(@Query("symbol") String symbol, @Query("limit") Integer limit, @Query("fromId") Long fromId);
 
-    @GET("/api/v1/aggTrades")
+    @GET("/api/v3/aggTrades")
     Call<List<AggTrade>> getAggTrades(@Query("symbol") String symbol, @Query("fromId") String fromId, @Query("limit") Integer limit,
                                       @Query("startTime") Long startTime, @Query("endTime") Long endTime);
 
-    @GET("/api/v1/klines")
+    @GET("/api/v3/klines")
     Call<List<Candlestick>> getCandlestickBars(@Query("symbol") String symbol, @Query("interval") String interval, @Query("limit") Integer limit,
                                                @Query("startTime") Long startTime, @Query("endTime") Long endTime);
 
-    @GET("/api/v1/ticker/24hr")
+    @GET("/api/v3/ticker/24hr")
     Call<TickerStatistics> get24HrPriceStatistics(@Query("symbol") String symbol);
 
-    @GET("/api/v1/ticker/24hr")
+    @GET("/api/v3/ticker/24hr")
     Call<List<TickerStatistics>> getAll24HrPriceStatistics();
 
     // + new methods
@@ -72,7 +72,7 @@ public interface BinanceApiService {
     Call<List<TickerStatistics>> getAllWindowPriceChangeStatistics(@Query("symbols") String symbols, @Query("windowSize") String windowSize);
     // - new methods
 
-    @GET("/api/v1/ticker/allPrices")
+    @GET("/api/v3/ticker/price")
     Call<List<TickerPrice>> getLatestPrices();
 
     @GET("/api/v3/ticker/price")
@@ -85,7 +85,7 @@ public interface BinanceApiService {
 
     // - new method
 
-    @GET("/api/v1/ticker/allBookTickers")
+    @GET("/api/v3/ticker/bookTicker")
     Call<List<BookTicker>> getBookTickers();
 
     // Account endpoints

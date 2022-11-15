@@ -27,7 +27,7 @@ public class DepthEvent {
   private long firstUpdateId;
 
   /**
-   * updateId to sync up with updateid in /api/v1/depth
+   * updateId to sync up with updateid in /api/v3/depth
    */
   @JsonProperty("u")
   private long finalUpdateId;

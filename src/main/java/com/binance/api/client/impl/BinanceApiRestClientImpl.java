@@ -89,18 +89,19 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 		return getCandlestickBars(symbol, interval, null, null, null);
 	}
 
-	// + new methods
-
 	@Override
 	public List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval, Integer limit) {
 		return getCandlestickBars(symbol, interval, limit, null, null);
 	}
 
-	// - new methods
+	@Override
+	public TickerStatistics getSingleTicker24HrPriceStatistics(String symbol) {
+		return executeSync(binanceApiService.getSingleTicker24HrPriceStatistics(symbol));
+	}
 
 	@Override
-	public TickerStatistics get24HrPriceStatistics(String symbol) {
-		return executeSync(binanceApiService.get24HrPriceStatistics(symbol));
+	public List<TickerStatistics> getVariousTicker24HrPriceStatistics(String symbols) {
+		return executeSync(binanceApiService.getVariousTicker24HrPriceStatistics(symbols));
 	}
 
 	@Override
@@ -108,7 +109,6 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 		return executeSync(binanceApiService.getAll24HrPriceStatistics());
 	}
 
-	// + new methods
 	// TODO change windowSize to enum
 	@Override
 	public TickerStatistics getWindowPriceChangeStatistics(String symbol, String windowSize) {
@@ -119,19 +119,16 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	public List<TickerStatistics> getAllWindowPriceChangeStatistics(String symbols, String windowSize) {
 		return executeSync(binanceApiService.getAllWindowPriceChangeStatistics(symbols, windowSize));
 	}
-	// - new methods
 
 	@Override
 	public TickerPrice getPrice(String symbol) {
 		return executeSync(binanceApiService.getLatestPrice(symbol));
 	}
 
-	// + new method
 	@Override
 	public List<TickerPrice> getPrices(String symbols) {
 		return executeSync(binanceApiService.getLatestPrices(symbols));
 	}
-	// - new method
 
 	@Override
 	public List<TickerPrice> getAllPrices() {

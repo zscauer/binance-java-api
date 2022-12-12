@@ -27,7 +27,7 @@ public class MarketDataEndpointsExample {
     System.out.println(orderBook.getAsks());
 
     // Getting latest price of a symbol
-    TickerStatistics tickerStatistics = client.get24HrPriceStatistics("NEOETH");
+    TickerStatistics tickerStatistics = client.getSingleTicker24HrPriceStatistics("NEOETH");
     System.out.println(tickerStatistics);
 
     // Getting all latest prices

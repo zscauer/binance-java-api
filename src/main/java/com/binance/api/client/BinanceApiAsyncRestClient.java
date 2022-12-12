@@ -130,12 +130,20 @@ public interface BinanceApiAsyncRestClient {
   void getCandlestickBars(String symbol, CandlestickInterval interval, BinanceApiCallback<List<Candlestick>> callback);
 
   /**
-   * Get 24 hour price change statistics (asynchronous).
+   * Get 24 hour price change statistics (asynchronous) for one trade pair.
    *
    * @param symbol ticker symbol (e.g. ETHBTC)
    * @param callback the callback that handles the response
    */
-  void get24HrPriceStatistics(String symbol, BinanceApiCallback<TickerStatistics> callback);
+  void getSingleTicker24HrPriceStatistics(String symbol, BinanceApiCallback<TickerStatistics> callback);
+
+  /**
+   * Get 24 hour price change statistics (asynchronous) for various trade pairs.
+   *
+   * @param symbols formatted ticker symbols (e.g. ["BTCUSDT","BNBUSDT"])
+   * @param callback the callback that handles the response
+   */
+  void getVariousTicker24HrPriceStatistics(String symbols, BinanceApiCallback<TickerStatistics> callback);
   
   /**
    * Get 24 hour price change statistics for all symbols (asynchronous).

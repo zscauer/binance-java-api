@@ -27,7 +27,7 @@ public class MarketDataEndpointsExampleAsync {
     });
 
     // Getting latest price of a symbol (async)
-    client.get24HrPriceStatistics("NEOETH", (TickerStatistics response) -> {
+    client.getSingleTicker24HrPriceStatistics("NEOETH", (TickerStatistics response) -> {
       System.out.println(response);
     });
 

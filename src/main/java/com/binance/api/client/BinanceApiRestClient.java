@@ -112,28 +112,31 @@ public interface BinanceApiRestClient {
    */
   List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval);
 
-  // + new method
   List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval, Integer limit);
-  // - new method
 
   /**
-   * Get 24 hour price change statistics.
+   * Get 24 hour price change statistics for one pair.
    *
    * @param symbol ticker symbol (e.g. ETHBTC)
    */
-  TickerStatistics get24HrPriceStatistics(String symbol);
+  TickerStatistics getSingleTicker24HrPriceStatistics(String symbol);
+
+  /**
+   * Get 24 hour price change statistics for various pairs.
+   *
+   * @param symbols formatted ticker symbols (e.g. ["BTCUSDT","BNBUSDT"])
+   */
+  List<TickerStatistics> getVariousTicker24HrPriceStatistics(String symbols);
 
   /**
    * Get 24 hour price change statistics for all symbols.
    */
   List<TickerStatistics> getAll24HrPriceStatistics();
 
-  // + new methods
   // TODO change windowSize to enum
   TickerStatistics getWindowPriceChangeStatistics(String symbol, String windowSize);
 
   List<TickerStatistics> getAllWindowPriceChangeStatistics(String symbols, String windowSize);
-  // - new methods
 
   /**
    * Get Latest price for all symbols.
@@ -147,9 +150,7 @@ public interface BinanceApiRestClient {
    */
   TickerPrice getPrice(String symbol);
 
-  // + new method
   List<TickerPrice> getPrices(String symbols);
-  // - new method
 
   /**
    * Get best price/qty on the order book for all symbols.

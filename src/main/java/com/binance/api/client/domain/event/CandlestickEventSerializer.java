@@ -40,5 +40,6 @@ public class CandlestickEventSerializer extends JsonSerializer<CandlestickEvent>
     gen.writeStringField("V", candlestickEvent.getTakerBuyBaseAssetVolume());
     gen.writeStringField("Q", candlestickEvent.getTakerBuyQuoteAssetVolume());
     gen.writeEndObject();
+    gen.writeEndObject();
   }
 }

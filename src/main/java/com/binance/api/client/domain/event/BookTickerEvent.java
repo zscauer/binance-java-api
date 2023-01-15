@@ -3,12 +3,16 @@ package com.binance.api.client.domain.event;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * BookTickerEvent event for a symbol. Pushes any update to the best bid or
  * ask's price or quantity in real-time for a specified symbol.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookTickerEvent {
 
@@ -51,54 +55,6 @@ public class BookTickerEvent {
         this.bidPrice = bidPrice;
         this.bidQuantity = bidQuantity;
         this.askPrice = askPrice;
-        this.askQuantity = askQuantity;
-    }
-
-    public long getUpdateId() {
-        return updateId;
-    }
-
-    public void setUpdateId(long updateId) {
-        this.updateId = updateId;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public String getBidPrice() {
-        return bidPrice;
-    }
-
-    public void setBidPrice(String bidPrice) {
-        this.bidPrice = bidPrice;
-    }
-
-    public String getBidQuantity() {
-        return bidQuantity;
-    }
-
-    public void setBidQuantity(String bidQuantity) {
-        this.bidQuantity = bidQuantity;
-    }
-
-    public String getAskPrice() {
-        return askPrice;
-    }
-
-    public void setAskPrice(String askPrice) {
-        this.askPrice = askPrice;
-    }
-
-    public String getAskQuantity() {
-        return askQuantity;
-    }
-
-    public void setAskQuantity(String askQuantity) {
         this.askQuantity = askQuantity;
     }
 

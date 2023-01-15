@@ -5,11 +5,13 @@ import com.binance.api.client.domain.OrderSide;
 import com.binance.api.client.domain.OrderType;
 import com.binance.api.client.domain.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * A trade order to enter or exit a position.
  */
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NewOrder {
 
@@ -105,17 +107,9 @@ public class NewOrder {
     this.price = price;
   }
 
-  public String getSymbol() {
-    return symbol;
-  }
-
   public NewOrder symbol(String symbol) {
     this.symbol = symbol;
     return this;
-  }
-
-  public OrderSide getSide() {
-    return side;
   }
 
   public NewOrder side(OrderSide side) {
@@ -123,17 +117,9 @@ public class NewOrder {
     return this;
   }
 
-  public OrderType getType() {
-    return type;
-  }
-
   public NewOrder type(OrderType type) {
     this.type = type;
     return this;
-  }
-
-  public TimeInForce getTimeInForce() {
-    return timeInForce;
   }
 
   public NewOrder timeInForce(TimeInForce timeInForce) {
@@ -141,17 +127,9 @@ public class NewOrder {
     return this;
   }
 
-  public String getQuantity() {
-    return quantity;
-  }
-
   public NewOrder quantity(String quantity) {
     this.quantity = quantity;
     return this;
-  }
-
-  public String getQuoteOrderQty() {
-    return quoteOrderQty;
   }
 
   public NewOrder quoteOrderQty(String quoteOrderQty) {
@@ -159,17 +137,9 @@ public class NewOrder {
     return this;
   }
 
-  public String getPrice() {
-    return price;
-  }
-
   public NewOrder price(String price) {
     this.price = price;
     return this;
-  }
-
-  public String getNewClientOrderId() {
-    return newClientOrderId;
   }
 
   public NewOrder newClientOrderId(String newClientOrderId) {
@@ -177,17 +147,9 @@ public class NewOrder {
     return this;
   }
 
-  public String getStopPrice() {
-    return stopPrice;
-  }
-
   public NewOrder stopPrice(String stopPrice) {
     this.stopPrice = stopPrice;
     return this;
-  }
-
-  public String getStopLimitPrice() {
-    return stopLimitPrice;
   }
 
   public NewOrder stopLimitPrice(String stopLimitPrice) {
@@ -195,17 +157,9 @@ public class NewOrder {
     return this;
   }
 
-  public String getIcebergQty() {
-    return icebergQty;
-  }
-
   public NewOrder icebergQty(String icebergQty) {
     this.icebergQty = icebergQty;
     return this;
-  }
-
-  public NewOrderResponseType getNewOrderRespType() {
-    return newOrderRespType;
   }
 
   public NewOrder newOrderRespType(NewOrderResponseType newOrderRespType) {
@@ -213,17 +167,9 @@ public class NewOrder {
     return this;
   }
 
-  public Long getRecvWindow() {
-    return recvWindow;
-  }
-
   public NewOrder recvWindow(Long recvWindow) {
     this.recvWindow = recvWindow;
     return this;
-  }
-
-  public long getTimestamp() {
-    return timestamp;
   }
 
   public NewOrder timestamp(long timestamp) {

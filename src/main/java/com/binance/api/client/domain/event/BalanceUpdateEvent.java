@@ -3,6 +3,8 @@ package com.binance.api.client.domain.event;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -12,6 +14,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  * @see UserDataUpdateEvent
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BalanceUpdateEvent {
 
@@ -29,46 +33,6 @@ public class BalanceUpdateEvent {
 
   @JsonProperty("T")
   private Long clearTime;
-
-  public String getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public long getEventTime() {
-    return eventTime;
-  }
-
-  public void setEventTime(long eventTime) {
-    this.eventTime = eventTime;
-  }
-
-  public String getAsset() {
-    return asset;
-  }
-
-  public void setAsset(String asset) {
-    this.asset = asset;
-  }
-
-  public String getBalanceDelta() {
-    return balanceDelta;
-  }
-
-  public void setBalanceDelta(String balanceDelta) {
-    this.balanceDelta = balanceDelta;
-  }
-
-  public Long getClearTime() {
-    return clearTime;
-  }
-
-  public void setClearTime(Long clearTime) {
-    this.clearTime = clearTime;
-  }
 
   @Override
   public String toString() {

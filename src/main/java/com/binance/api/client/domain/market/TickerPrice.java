@@ -2,11 +2,15 @@ package com.binance.api.client.domain.market;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Wraps a symbol and its corresponding latest price.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TickerPrice {
 
@@ -19,22 +23,6 @@ public class TickerPrice {
    * Latest price.
    */
   private String price;
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-  public String getPrice() {
-    return price;
-  }
-
-  public void setPrice(String price) {
-    this.price = price;
-  }
 
   @Override
   public String toString() {

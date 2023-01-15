@@ -1,11 +1,13 @@
 package com.binance.api.client.domain.account.request;
 
 import com.binance.api.client.constant.BinanceApiConstants;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Request object for canceling an order.
  */
+@Getter
 public class CancelOrderRequest extends OrderRequest {
 
   private Long orderId;
@@ -27,26 +29,14 @@ public class CancelOrderRequest extends OrderRequest {
    */
   private String newClientOrderId;
 
-  public Long getOrderId() {
-    return orderId;
-  }
-
   public CancelOrderRequest orderId(Long orderId) {
     this.orderId = orderId;
     return this;
   }
 
-  public String getOrigClientOrderId() {
-    return origClientOrderId;
-  }
-
   public CancelOrderRequest origClientOrderId(String origClientOrderId) {
     this.origClientOrderId = origClientOrderId;
     return this;
-  }
-
-  public String getNewClientOrderId() {
-    return newClientOrderId;
   }
 
   public CancelOrderRequest newClientOrderId(String newClientOrderId) {

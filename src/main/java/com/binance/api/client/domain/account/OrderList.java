@@ -2,6 +2,8 @@ package com.binance.api.client.domain.account;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.binance.api.client.constant.BinanceApiConstants;
@@ -10,6 +12,8 @@ import com.binance.api.client.domain.OCOOrderStatus;
 import com.binance.api.client.domain.OCOStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderList {
 
@@ -31,70 +35,6 @@ public class OrderList {
     private String symbol;
 
     private List<Order> orders;
-
-    public Long getOrderListId() {
-        return orderListId;
-    }
-
-    public void setOrderListId(Long orderListId) {
-        this.orderListId = orderListId;
-    }
-
-    public ContingencyType getContingencyType() {
-        return contingencyType;
-    }
-
-    public void setContingencyType(ContingencyType contingencyType) {
-        this.contingencyType = contingencyType;
-    }
-
-    public OCOStatus getListStatusType() {
-        return listStatusType;
-    }
-
-    public void setListStatusType(OCOStatus listStatusType) {
-        this.listStatusType = listStatusType;
-    }
-
-    public OCOOrderStatus getListOrderStatus() {
-        return listOrderStatus;
-    }
-
-    public void setListOrderStatus(OCOOrderStatus listOrderStatus) {
-        this.listOrderStatus = listOrderStatus;
-    }
-
-    public String getListClientOrderId() {
-        return listClientOrderId;
-    }
-
-    public void setListClientOrderId(String listClientOrderId) {
-        this.listClientOrderId = listClientOrderId;
-    }
-
-    public Long getTransactionTime() {
-        return transactionTime;
-    }
-
-    public void setTransactionTime(Long transactionTime) {
-        this.transactionTime = transactionTime;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
 
     @Override
     public String toString() {

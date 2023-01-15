@@ -1,7 +1,12 @@
 package com.binance.api.client.domain.account;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Map;
 
+@Setter
+@Getter
 public class Liquidity {
 
     private String poolId;
@@ -9,46 +14,6 @@ public class Liquidity {
     private Long updateTime;
     private Map<String, String> liquidity;
     private Share share;
-
-    public String getPoolId() {
-        return poolId;
-    }
-
-    public void setPoolId(String poolId) {
-        this.poolId = poolId;
-    }
-
-    public String getPoolName() {
-        return poolName;
-    }
-
-    public void setPoolName(String poolName) {
-        this.poolName = poolName;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Map<String, String> getLiquidity() {
-        return liquidity;
-    }
-
-    public void setLiquidity(Map<String, String> liquidity) {
-        this.liquidity = liquidity;
-    }
-
-    public Share getShare() {
-        return share;
-    }
-
-    public void setShare(Share share) {
-        this.share = share;
-    }
 
     public static class Share {
         private double shareAmount;

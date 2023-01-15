@@ -4,11 +4,15 @@ import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.market.AggTrade;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * An aggregated trade event for a symbol.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AggTradeEvent extends AggTrade {
 
@@ -20,30 +24,6 @@ public class AggTradeEvent extends AggTrade {
 
   @JsonProperty("s")
   private String symbol;
-
-  public String getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public long getEventTime() {
-    return eventTime;
-  }
-
-  public void setEventTime(long eventTime) {
-    this.eventTime = eventTime;
-  }
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
 
   @Override
   public String toString() {

@@ -1,11 +1,13 @@
 package com.binance.api.client.domain.account.request;
 
 import com.binance.api.client.constant.BinanceApiConstants;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * A specialized order request with additional filters.
  */
+@Getter
 public class AllOrdersRequest extends OrderRequest {
 
   private static final Integer DEFAULT_LIMIT = 500;
@@ -19,17 +21,9 @@ public class AllOrdersRequest extends OrderRequest {
     this.limit = DEFAULT_LIMIT;
   }
 
-  public Long getOrderId() {
-    return orderId;
-  }
-
   public AllOrdersRequest orderId(Long orderId) {
     this.orderId = orderId;
     return this;
-  }
-
-  public Integer getLimit() {
-    return limit;
   }
 
   public AllOrdersRequest limit(Integer limit) {

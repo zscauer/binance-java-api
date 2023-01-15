@@ -2,11 +2,15 @@ package com.binance.api.client.domain.general;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Rate limits.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RateLimit {
 
@@ -15,30 +19,6 @@ public class RateLimit {
   private RateLimitInterval interval;
 
   private Integer limit;
-
-  public RateLimitType getRateLimitType() {
-    return rateLimitType;
-  }
-
-  public void setRateLimitType(RateLimitType rateLimitType) {
-    this.rateLimitType = rateLimitType;
-  }
-
-  public RateLimitInterval getInterval() {
-    return interval;
-  }
-
-  public void setInterval(RateLimitInterval interval) {
-    this.interval = interval;
-  }
-
-  public Integer getLimit() {
-    return limit;
-  }
-
-  public void setLimit(Integer limit) {
-    this.limit = limit;
-  }
 
   @Override
   public String toString() {

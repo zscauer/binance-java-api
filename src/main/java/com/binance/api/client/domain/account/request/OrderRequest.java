@@ -2,11 +2,13 @@ package com.binance.api.client.domain.account.request;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Base request parameters for order-related methods.
  */
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderRequest {
 
@@ -22,21 +24,9 @@ public class OrderRequest {
     this.recvWindow = BinanceApiConstants.DEFAULT_RECEIVING_WINDOW;
   }
 
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public Long getRecvWindow() {
-    return recvWindow;
-  }
-
   public OrderRequest recvWindow(Long recvWindow) {
     this.recvWindow = recvWindow;
     return this;
-  }
-
-  public Long getTimestamp() {
-    return timestamp;
   }
 
   public OrderRequest timestamp(Long timestamp) {

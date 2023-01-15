@@ -3,11 +3,15 @@ package com.binance.api.client.domain.event;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  *
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TickerEvent {
 
@@ -79,190 +83,6 @@ public class TickerEvent {
 
     @JsonProperty("n")
     private long totalNumberOfTrades;
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public long getEventTime() {
-        return eventTime;
-    }
-
-    public void setEventTime(long eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public String getPriceChange() {
-        return priceChange;
-    }
-
-    public void setPriceChange(String priceChange) {
-        this.priceChange = priceChange;
-    }
-
-    public String getPriceChangePercent() {
-        return priceChangePercent;
-    }
-
-    public void setPriceChangePercent(String priceChangePercent) {
-        this.priceChangePercent = priceChangePercent;
-    }
-
-    public String getWeightedAveragePrice() {
-        return weightedAveragePrice;
-    }
-
-    public void setWeightedAveragePrice(String weightedAveragePrice) {
-        this.weightedAveragePrice = weightedAveragePrice;
-    }
-
-    public String getPreviousDaysClosePrice() {
-        return previousDaysClosePrice;
-    }
-
-    public void setPreviousDaysClosePrice(String previousDaysClosePrice) {
-        this.previousDaysClosePrice = previousDaysClosePrice;
-    }
-
-    public String getCurrentDaysClosePrice() {
-        return currentDaysClosePrice;
-    }
-
-    public void setCurrentDaysClosePrice(String currentDaysClosePrice) {
-        this.currentDaysClosePrice = currentDaysClosePrice;
-    }
-
-    public String getCloseTradesQuantity() {
-        return closeTradesQuantity;
-    }
-
-    public void setCloseTradesQuantity(String closeTradesQuantity) {
-        this.closeTradesQuantity = closeTradesQuantity;
-    }
-
-    public String getBestBidPrice() {
-        return bestBidPrice;
-    }
-
-    public void setBestBidPrice(String bestBidPrice) {
-        this.bestBidPrice = bestBidPrice;
-    }
-
-    public String getBestBidQuantity() {
-        return bestBidQuantity;
-    }
-
-    public void setBestBidQuantity(String bestBidQuantity) {
-        this.bestBidQuantity = bestBidQuantity;
-    }
-
-    public String getBestAskPrice() {
-        return bestAskPrice;
-    }
-
-    public void setBestAskPrice(String bestAskPrice) {
-        this.bestAskPrice = bestAskPrice;
-    }
-
-    public String getBestAskQuantity() {
-        return bestAskQuantity;
-    }
-
-    public void setBestAskQuantity(String bestAskQuantity) {
-        this.bestAskQuantity = bestAskQuantity;
-    }
-
-    public String getOpenPrice() {
-        return openPrice;
-    }
-
-    public void setOpenPrice(String openPrice) {
-        this.openPrice = openPrice;
-    }
-
-    public String getHighPrice() {
-        return highPrice;
-    }
-
-    public void setHighPrice(String highPrice) {
-        this.highPrice = highPrice;
-    }
-
-    public String getLowPrice() {
-        return lowPrice;
-    }
-
-    public void setLowPrice(String lowPrice) {
-        this.lowPrice = lowPrice;
-    }
-
-    public String getTotalTradedBaseAssetVolume() {
-        return totalTradedBaseAssetVolume;
-    }
-
-    public void setTotalTradedBaseAssetVolume(String totalTradedBaseAssetVolume) {
-        this.totalTradedBaseAssetVolume = totalTradedBaseAssetVolume;
-    }
-
-    public String getTotalTradedQuoteAssetVolume() {
-        return totalTradedQuoteAssetVolume;
-    }
-
-    public void setTotalTradedQuoteAssetVolume(String totalTradedQuoteAssetVolume) {
-        this.totalTradedQuoteAssetVolume = totalTradedQuoteAssetVolume;
-    }
-
-    public long getStatisticsOpenTime() {
-        return statisticsOpenTime;
-    }
-
-    public void setStatisticsOpenTime(long statisticsOpenTime) {
-        this.statisticsOpenTime = statisticsOpenTime;
-    }
-
-    public long getStatisticsCloseTime() {
-        return statisticsCloseTime;
-    }
-
-    public void setStatisticsCloseTime(long statisticsCloseTime) {
-        this.statisticsCloseTime = statisticsCloseTime;
-    }
-
-    public long getFirstTradeId() {
-        return firstTradeId;
-    }
-
-    public void setFirstTradeId(long firstTradeId) {
-        this.firstTradeId = firstTradeId;
-    }
-
-    public long getLastTradeId() {
-        return lastTradeId;
-    }
-
-    public void setLastTradeId(long lastTradeId) {
-        this.lastTradeId = lastTradeId;
-    }
-
-    public long getTotalNumberOfTrades() {
-        return totalNumberOfTrades;
-    }
-
-    public void setTotalNumberOfTrades(long totalNumberOfTrades) {
-        this.totalNumberOfTrades = totalNumberOfTrades;
-    }
 
     @Override
     public String toString() {

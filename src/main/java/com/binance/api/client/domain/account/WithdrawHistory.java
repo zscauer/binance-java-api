@@ -2,6 +2,8 @@ package com.binance.api.client.domain.account;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
@@ -11,28 +13,14 @@ import java.util.List;
  *
  * @see Withdraw
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WithdrawHistory {
 
   private List<Withdraw> withdrawList;
 
   private boolean success;
-
-  public List<Withdraw> getWithdrawList() {
-    return withdrawList;
-  }
-
-  public void setWithdrawList(List<Withdraw> withdrawList) {
-    this.withdrawList = withdrawList;
-  }
-
-  public boolean isSuccess() {
-    return success;
-  }
-
-  public void setSuccess(boolean success) {
-    this.success = success;
-  }
 
   @Override
   public String toString() {

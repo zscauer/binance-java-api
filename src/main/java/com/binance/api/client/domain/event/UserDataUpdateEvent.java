@@ -4,6 +4,8 @@ import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.exception.UnsupportedEventException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -16,6 +18,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * <p>
  * Deserialization could fail with UnsupportedEventException in case of unsupported eventType.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(using = UserDataUpdateEventDeserializer.class)
 public class UserDataUpdateEvent {
@@ -30,52 +34,12 @@ public class UserDataUpdateEvent {
 
   private OrderTradeUpdateEvent orderTradeUpdateEvent;
 
-  public UserDataUpdateEventType getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(UserDataUpdateEventType eventType) {
-    this.eventType = eventType;
-  }
-
-  public long getEventTime() {
-    return eventTime;
-  }
-
-  public void setEventTime(long eventTime) {
-    this.eventTime = eventTime;
-  }
-
   /**
    * @Deprecated: left in for backwards compatibility. Use getOutboundAccountPositionUpdateEvent() instead, as that is what the Binance API documentation calls it.
    */
   @Deprecated
   public AccountUpdateEvent getAccountUpdateEvent() {
     return outboundAccountPositionUpdateEvent;
-  }
-
-  public AccountUpdateEvent getOutboundAccountPositionUpdateEvent() {
-    return outboundAccountPositionUpdateEvent;
-  }
-
-  public void setOutboundAccountPositionUpdateEvent(AccountUpdateEvent accountUpdateEvent) {
-    this.outboundAccountPositionUpdateEvent = accountUpdateEvent;
-  }
-
-  public BalanceUpdateEvent getBalanceUpdateEvent() {
-    return balanceUpdateEvent;
-  }
-
-  public void setBalanceUpdateEvent(BalanceUpdateEvent balanceUpdateEvent) {
-    this.balanceUpdateEvent = balanceUpdateEvent;
-  }
-
-  public OrderTradeUpdateEvent getOrderTradeUpdateEvent() {
-    return orderTradeUpdateEvent;
-  }
-
-  public void setOrderTradeUpdateEvent(OrderTradeUpdateEvent orderTradeUpdateEvent) {
-    this.orderTradeUpdateEvent = orderTradeUpdateEvent;
   }
 
   @Override

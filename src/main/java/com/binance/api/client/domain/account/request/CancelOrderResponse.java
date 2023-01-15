@@ -3,6 +3,8 @@ package com.binance.api.client.domain.account.request;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -10,6 +12,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  * @see CancelOrderRequest for the request
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CancelOrderResponse {
 
@@ -24,58 +28,6 @@ public class CancelOrderResponse {
   private OrderStatus status;
 
   private String executedQty;
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public CancelOrderResponse setSymbol(String symbol) {
-    this.symbol = symbol;
-    return this;
-  }
-
-  public String getOrigClientOrderId() {
-    return origClientOrderId;
-  }
-
-  public CancelOrderResponse setOrigClientOrderId(String origClientOrderId) {
-    this.origClientOrderId = origClientOrderId;
-    return this;
-  }
-
-  public void setStatus(OrderStatus status) {
-    this.status = status;
-  }
-
-  public OrderStatus getStatus() {
-    return status;
-  }
-
-  public void setExecutedQty(String executedQty) {
-    this.executedQty = executedQty;
-  }
-
-  public String getExecutedQty() {
-    return executedQty;
-  }
-
-  public Long getOrderId() {
-    return orderId;
-  }
-
-  public CancelOrderResponse setOrderId(Long orderId) {
-    this.orderId = orderId;
-    return this;
-  }
-
-  public String getClientOrderId() {
-    return clientOrderId;
-  }
-
-  public CancelOrderResponse setClientOrderId(String clientOrderId) {
-    this.clientOrderId = clientOrderId;
-    return this;
-  }
 
   @Override
   public String toString() {

@@ -4,6 +4,8 @@ import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -13,6 +15,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  * @see UserDataUpdateEvent
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderTradeUpdateEvent {
 
@@ -147,198 +151,6 @@ public class OrderTradeUpdateEvent {
    */
   @JsonProperty("Q")
   private String quoteOrderQty;
-
-  public String getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public Long getEventTime() {
-    return eventTime;
-  }
-
-  public void setEventTime(Long eventTime) {
-    this.eventTime = eventTime;
-  }
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-  public String getNewClientOrderId() {
-    return newClientOrderId;
-  }
-
-  public void setNewClientOrderId(String newClientOrderId) {
-    this.newClientOrderId = newClientOrderId;
-  }
-
-  public OrderSide getSide() {
-    return side;
-  }
-
-  public void setSide(OrderSide side) {
-    this.side = side;
-  }
-
-  public OrderType getType() {
-    return type;
-  }
-
-  public void setType(OrderType type) {
-    this.type = type;
-  }
-
-  public TimeInForce getTimeInForce() {
-    return timeInForce;
-  }
-
-  public void setTimeInForce(TimeInForce timeInForce) {
-    this.timeInForce = timeInForce;
-  }
-
-  public String getOriginalQuantity() {
-    return originalQuantity;
-  }
-
-  public void setOriginalQuantity(String originalQuantity) {
-    this.originalQuantity = originalQuantity;
-  }
-
-  public String getPrice() {
-    return price;
-  }
-
-  public void setPrice(String price) {
-    this.price = price;
-  }
-
-  public ExecutionType getExecutionType() {
-    return executionType;
-  }
-
-  public void setExecutionType(ExecutionType executionType) {
-    this.executionType = executionType;
-  }
-
-  public OrderStatus getOrderStatus() {
-    return orderStatus;
-  }
-
-  public void setOrderStatus(OrderStatus orderStatus) {
-    this.orderStatus = orderStatus;
-  }
-
-  public OrderRejectReason getOrderRejectReason() {
-    return orderRejectReason;
-  }
-
-  public void setOrderRejectReason(OrderRejectReason orderRejectReason) {
-    this.orderRejectReason = orderRejectReason;
-  }
-
-  public Long getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(Long orderId) {
-    this.orderId = orderId;
-  }
-
-  public String getQuantityLastFilledTrade() {
-    return quantityLastFilledTrade;
-  }
-
-  public void setQuantityLastFilledTrade(String quantityLastFilledTrade) {
-    this.quantityLastFilledTrade = quantityLastFilledTrade;
-  }
-
-  public String getAccumulatedQuantity() {
-    return accumulatedQuantity;
-  }
-
-  public void setAccumulatedQuantity(String accumulatedQuantity) {
-    this.accumulatedQuantity = accumulatedQuantity;
-  }
-
-  public String getPriceOfLastFilledTrade() {
-    return priceOfLastFilledTrade;
-  }
-
-  public void setPriceOfLastFilledTrade(String priceOfLastFilledTrade) {
-    this.priceOfLastFilledTrade = priceOfLastFilledTrade;
-  }
-
-  public String getCommission() {
-    return commission;
-  }
-
-  public void setCommission(String commission) {
-    this.commission = commission;
-  }
-
-  public String getCommissionAsset() {
-    return commissionAsset;
-  }
-
-  public void setCommissionAsset(String commissionAsset) {
-    this.commissionAsset = commissionAsset;
-  }
-
-  public Long getOrderTradeTime() {
-    return orderTradeTime;
-  }
-
-  public void setOrderTradeTime(Long orderTradeTime) {
-    this.orderTradeTime = orderTradeTime;
-  }
-
-  public Long getTradeId() {
-    return tradeId;
-  }
-
-  public void setTradeId(Long tradeId) {
-    this.tradeId = tradeId;
-  }
-
-  public Long getOrderCreationTime() {
-    return orderCreationTime;
-  }
-
-  public void setOrderCreationTime(Long orderCreationTime) {
-    this.orderCreationTime = orderCreationTime;
-  }
-
-  public String getCumulativeQuoteQty() {
-    return cumulativeQuoteQty;
-  }
-
-  public void setCumulativeQuoteQty(String cumulativeQuoteQty) {
-    this.cumulativeQuoteQty = cumulativeQuoteQty;
-  }
-
-  public String getLastQuoteQty() {
-    return lastQuoteQty;
-  }
-
-  public void setLastQuoteQty(String lastQuoteQty) {
-    this.lastQuoteQty = lastQuoteQty;
-  }
-
-  public String getQuoteOrderQty() {
-    return quoteOrderQty;
-  }
-
-  public void setQuoteOrderQty(String quoteOrderQty) {
-    this.quoteOrderQty = quoteOrderQty;
-  }
 
   @Override
   public String toString() {

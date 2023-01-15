@@ -2,6 +2,8 @@ package com.binance.api.client.domain.account;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -9,6 +11,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  * @see Account
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginAssetBalance {
 
@@ -40,54 +44,6 @@ public class MarginAssetBalance {
   private String locked = "0";
 
   private String netAsset = "0";
-
-  public String getAsset() {
-    return asset;
-  }
-
-  public void setAsset(String asset) {
-    this.asset = asset;
-  }
-
-  public String getBorrowed() {
-    return borrowed;
-  }
-
-  public void setBorrowed(String borrowed) {
-    this.borrowed = borrowed;
-  }
-
-  public String getFree() {
-    return free;
-  }
-
-  public void setFree(String free) {
-    this.free = free;
-  }
-
-  public String getInterest() {
-    return interest;
-  }
-
-  public void setInterest(String interest) {
-    this.interest = interest;
-  }
-
-  public String getLocked() {
-    return locked;
-  }
-
-  public void setLocked(String locked) {
-    this.locked = locked;
-  }
-
-  public String getNetAsset() {
-    return netAsset;
-  }
-
-  public void setNetAsset(String netAsset) {
-    this.netAsset = netAsset;
-  }
 
   @Override
   public String toString() {

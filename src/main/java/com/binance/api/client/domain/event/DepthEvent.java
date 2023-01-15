@@ -4,6 +4,8 @@ import com.binance.api.client.constant.BinanceApiConstants;
 import com.binance.api.client.domain.market.OrderBookEntry;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
 /**
  * Depth delta event for a symbol.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DepthEvent {
 
@@ -44,46 +48,6 @@ public class DepthEvent {
   @JsonProperty("a")
   private List<OrderBookEntry> asks;
 
-  public String getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public long getEventTime() {
-    return eventTime;
-  }
-
-  public void setEventTime(long eventTime) {
-    this.eventTime = eventTime;
-  }
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
-  }
-
-  public long getFirstUpdateId() {
-    return firstUpdateId;
-  }
-
-  public void setFirstUpdateId(final long firstUpdateId) {
-    this.firstUpdateId = firstUpdateId;
-  }
-
-  public long getFinalUpdateId() {
-    return finalUpdateId;
-  }
-
-  public void setFinalUpdateId(long finalUpdateId) {
-    this.finalUpdateId = finalUpdateId;
-  }
-
   /**
    * @deprecated Use {@link #getFinalUpdateId}
    */
@@ -98,22 +62,6 @@ public class DepthEvent {
   @Deprecated
   public void setUpdateId(long updateId) {
     this.finalUpdateId = updateId;
-  }
-
-  public List<OrderBookEntry> getBids() {
-    return bids;
-  }
-
-  public void setBids(List<OrderBookEntry> bids) {
-    this.bids = bids;
-  }
-
-  public List<OrderBookEntry> getAsks() {
-    return asks;
-  }
-
-  public void setAsks(List<OrderBookEntry> asks) {
-    this.asks = asks;
   }
 
   @Override

@@ -3,6 +3,8 @@ package com.binance.api.client.domain.account;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
  *
  * @see Deposit
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DepositHistory {
 
@@ -21,30 +25,6 @@ public class DepositHistory {
   private boolean success;
 
   private String msg;
-
-  public String getMsg() {
-    return msg;
-  }
-
-  public void setMsg(String msg) {
-    this.msg = msg;
-  }
-
-  public List<Deposit> getDepositList() {
-    return depositList;
-  }
-
-  public void setDepositList(List<Deposit> depositList) {
-    this.depositList = depositList;
-  }
-
-  public boolean isSuccess() {
-    return success;
-  }
-
-  public void setSuccess(boolean success) {
-    this.success = success;
-  }
 
   @Override
   public String toString() {

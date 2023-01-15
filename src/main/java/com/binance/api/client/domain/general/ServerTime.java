@@ -1,21 +1,17 @@
 package com.binance.api.client.domain.general;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Time of the server running Binance's REST API.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerTime {
   private Long serverTime;
-
-  public Long getServerTime() {
-    return serverTime;
-  }
-
-  public void setServerTime(Long serverTime) {
-    this.serverTime = serverTime;
-  }
 
   @Override
   public String toString() {

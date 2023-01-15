@@ -1,7 +1,11 @@
 package com.binance.api.client.domain.account;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CrossMarginAssets {
 
@@ -11,22 +15,6 @@ public class CrossMarginAssets {
     public boolean isMortgageable;
     public String userMinBorrow;
     public String userMinRepay;
-
-    public String getAssetFullName() {
-        return assetFullName;
-    }
-
-    public void setAssetFullName(String assetFullName) {
-        this.assetFullName = assetFullName;
-    }
-
-    public String getAssetName() {
-        return assetName;
-    }
-
-    public void setAssetName(String assetName) {
-        this.assetName = assetName;
-    }
 
     public boolean isBorrowable() {
         return isBorrowable;
@@ -42,22 +30,6 @@ public class CrossMarginAssets {
 
     public void setMortgageable(boolean mortgageable) {
         isMortgageable = mortgageable;
-    }
-
-    public String getUserMinBorrow() {
-        return userMinBorrow;
-    }
-
-    public void setUserMinBorrow(String userMinBorrow) {
-        this.userMinBorrow = userMinBorrow;
-    }
-
-    public String getUserMinRepay() {
-        return userMinRepay;
-    }
-
-    public void setUserMinRepay(String userMinRepay) {
-        this.userMinRepay = userMinRepay;
     }
 
     @Override

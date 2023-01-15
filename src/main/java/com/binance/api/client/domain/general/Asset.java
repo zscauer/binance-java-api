@@ -3,11 +3,13 @@ package com.binance.api.client.domain.general;
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * An asset Binance supports.
  */
+ @Getter
  @JsonIgnoreProperties(ignoreUnknown = true)
  public class Asset {
 
@@ -50,51 +52,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
    @JsonProperty("isLegalMoney")
    private boolean isLegalMoney;
 
-   public String getId() {
-     return id;
-   }
-
-   public String getAssetCode() {
-     return assetCode;
-   }
-
-   public String getAssetName() {
-     return assetName;
-   }
-
-   public String getUnit() {
-     return unit;
-   }
-
-   public String getTransactionFee() {
-     return transactionFee;
-   }
-
-   public String getCommissionRate() {
-     return commissionRate;
-   }
-
-   public String getFreeAuditWithdrawAmount() {
-     return freeAuditWithdrawAmount;
-   }
-
-   public String getFreeUserChargeAmount() {
-     return freeUserChargeAmount;
-   }
-
-   public String minProductWithdraw() {
+  public String minProductWithdraw() {
      return minProductWithdraw;
    }
 
-   public String getWithdrawIntegerMultiple() {
-     return withdrawIntegerMultiple;
-   }
-
-   public long getConfirmTimes() {
-     return confirmTimes;
-   }
-
-   public boolean canWithraw() {
+  public boolean canWithraw() {
      return enableWithdraw;
    }
 

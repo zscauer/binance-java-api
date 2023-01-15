@@ -2,6 +2,8 @@ package com.binance.api.client.domain.account;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.List;
 /**
  * Account information.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties
 public class MarginAccount {
 
@@ -27,70 +31,6 @@ public class MarginAccount {
   private boolean transferEnabled;
 
   private List<MarginAssetBalance> userAssets;
-
-  public boolean isBorrowEnabled() {
-    return borrowEnabled;
-  }
-
-  public void setBorrowEnabled(boolean borrowEnabled) {
-    this.borrowEnabled = borrowEnabled;
-  }
-
-  public String getMarginLevel() {
-    return marginLevel;
-  }
-
-  public void setMarginLevel(String marginLevel) {
-    this.marginLevel = marginLevel;
-  }
-
-  public String getTotalAssetOfBtc() {
-    return totalAssetOfBtc;
-  }
-
-  public void setTotalAssetOfBtc(String totalAssetOfBtc) {
-    this.totalAssetOfBtc = totalAssetOfBtc;
-  }
-
-  public String getTotalLiabilityOfBtc() {
-    return totalLiabilityOfBtc;
-  }
-
-  public void setTotalLiabilityOfBtc(String totalLiabilityOfBtc) {
-    this.totalLiabilityOfBtc = totalLiabilityOfBtc;
-  }
-
-  public String getTotalNetAssetOfBtc() {
-    return totalNetAssetOfBtc;
-  }
-
-  public void setTotalNetAssetOfBtc(String totalNetAssetOfBtc) {
-    this.totalNetAssetOfBtc = totalNetAssetOfBtc;
-  }
-
-  public boolean isTradeEnabled() {
-    return tradeEnabled;
-  }
-
-  public void setTradeEnabled(boolean tradeEnabled) {
-    this.tradeEnabled = tradeEnabled;
-  }
-
-  public boolean isTransferEnabled() {
-    return transferEnabled;
-  }
-
-  public void setTransferEnabled(boolean transferEnabled) {
-    this.transferEnabled = transferEnabled;
-  }
-
-  public List<MarginAssetBalance> getUserAssets() {
-    return userAssets;
-  }
-
-  public void setUserAssets(List<MarginAssetBalance> userAssets) {
-    this.userAssets = userAssets;
-  }
 
   /**
    * Returns the asset balance for a given symbol.

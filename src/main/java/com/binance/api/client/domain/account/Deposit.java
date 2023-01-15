@@ -2,11 +2,15 @@ package com.binance.api.client.domain.account;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * A deposit that was done to a Binance account.
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Deposit {
 
@@ -34,46 +38,6 @@ public class Deposit {
    * (0:pending,1:success)
    */
   private int status;
-
-  public String getAmount() {
-    return amount;
-  }
-
-  public void setAmount(String amount) {
-    this.amount = amount;
-  }
-
-  public String getAsset() {
-    return asset;
-  }
-
-  public void setAsset(String asset) {
-    this.asset = asset;
-  }
-
-  public String getInsertTime() {
-    return insertTime;
-  }
-
-  public void setInsertTime(String insertTime) {
-    this.insertTime = insertTime;
-  }
-
-  public String getTxId() {
-    return txId;
-  }
-
-  public void setTxId(String txId) {
-    this.txId = txId;
-  }
-
-  public int getStatus() {
-    return status;
-  }
-
-  public void setStatus(int status) {
-    this.status = status;
-  }
 
   @Override
   public String toString() {

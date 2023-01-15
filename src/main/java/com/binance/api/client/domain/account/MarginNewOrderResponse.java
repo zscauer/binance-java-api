@@ -6,6 +6,8 @@ import com.binance.api.client.domain.OrderStatus;
 import com.binance.api.client.domain.OrderType;
 import com.binance.api.client.domain.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.Collections;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
  *
  * @see NewOrder for the request
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginNewOrderResponse {
 
@@ -64,126 +68,6 @@ public class MarginNewOrderResponse {
      * Transact time for this order.
      */
     private Long transactTime;
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getClientOrderId() {
-        return clientOrderId;
-    }
-
-    public void setClientOrderId(String clientOrderId) {
-        this.clientOrderId = clientOrderId;
-    }
-
-    public Long getTransactTime() {
-        return transactTime;
-    }
-
-    public void setTransactTime(Long transactTime) {
-        this.transactTime = transactTime;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getOrigQty() {
-        return origQty;
-    }
-
-    public void setOrigQty(String origQty) {
-        this.origQty = origQty;
-    }
-
-    public String getExecutedQty() {
-        return executedQty;
-    }
-
-    public void setExecutedQty(String executedQty) {
-        this.executedQty = executedQty;
-    }
-
-    public String getCummulativeQuoteQty() {
-        return cummulativeQuoteQty;
-    }
-
-    public void setCummulativeQuoteQty(String cummulativeQuoteQty) {
-        this.cummulativeQuoteQty = cummulativeQuoteQty;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-
-    public TimeInForce getTimeInForce() {
-        return timeInForce;
-    }
-
-    public void setTimeInForce(TimeInForce timeInForce) {
-        this.timeInForce = timeInForce;
-    }
-
-    public OrderType getType() {
-        return type;
-    }
-
-    public void setType(OrderType type) {
-        this.type = type;
-    }
-
-    public String getMarginBuyBorrowAmount() {
-        return marginBuyBorrowAmount;
-    }
-
-    public void setMarginBuyBorrowAmount(String marginBuyBorrowAmount) {
-        this.marginBuyBorrowAmount = marginBuyBorrowAmount;
-    }
-
-    public String getMarginBuyBorrowAsset() {
-        return marginBuyBorrowAsset;
-    }
-
-    public void setMarginBuyBorrowAsset(String marginBuyBorrowAsset) {
-        this.marginBuyBorrowAsset = marginBuyBorrowAsset;
-    }
-
-    public OrderSide getSide() {
-        return side;
-    }
-
-    public void setSide(OrderSide side) {
-        this.side = side;
-    }
-
-    public List<Trade> getFills() {
-        return fills;
-    }
-
-    public void setFills(List<Trade> fills) {
-        this.fills = fills;
-    }
 
     @Override
     public String toString() {

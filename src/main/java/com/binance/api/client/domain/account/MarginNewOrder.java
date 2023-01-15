@@ -5,11 +5,13 @@ import com.binance.api.client.domain.OrderSide;
 import com.binance.api.client.domain.OrderType;
 import com.binance.api.client.domain.TimeInForce;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * A trade order to enter or exit a position.
  */
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MarginNewOrder {
 
@@ -105,17 +107,9 @@ public class MarginNewOrder {
         this.price = price;
     }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
     public MarginNewOrder symbol(String symbol) {
         this.symbol = symbol;
         return this;
-    }
-
-    public OrderSide getSide() {
-        return side;
     }
 
     public MarginNewOrder side(OrderSide side) {
@@ -123,17 +117,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public OrderType getType() {
-        return type;
-    }
-
     public MarginNewOrder type(OrderType type) {
         this.type = type;
         return this;
-    }
-
-    public TimeInForce getTimeInForce() {
-        return timeInForce;
     }
 
     public MarginNewOrder timeInForce(TimeInForce timeInForce) {
@@ -141,17 +127,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public String getQuantity() {
-        return quantity;
-    }
-
     public MarginNewOrder quantity(String quantity) {
         this.quantity = quantity;
         return this;
-    }
-
-    public String getQuoteOrderQty() {
-        return quoteOrderQty;
     }
 
     public MarginNewOrder quoteOrderQty(String quoteOrderQty) {
@@ -159,17 +137,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
     public MarginNewOrder price(String price) {
         this.price = price;
         return this;
-    }
-
-    public String getNewClientOrderId() {
-        return newClientOrderId;
     }
 
     public MarginNewOrder newClientOrderId(String newClientOrderId) {
@@ -177,17 +147,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public String getStopPrice() {
-        return stopPrice;
-    }
-
     public MarginNewOrder stopPrice(String stopPrice) {
         this.stopPrice = stopPrice;
         return this;
-    }
-
-    public String getIcebergQty() {
-        return icebergQty;
     }
 
     public MarginNewOrder icebergQty(String icebergQty) {
@@ -195,17 +157,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public NewOrderResponseType getNewOrderRespType() {
-        return newOrderRespType;
-    }
-
     public MarginNewOrder newOrderRespType(NewOrderResponseType newOrderRespType) {
         this.newOrderRespType = newOrderRespType;
         return this;
-    }
-
-    public SideEffectType getSideEffectType() {
-        return sideEffectType;
     }
 
     public MarginNewOrder sideEffectType(SideEffectType sideEffectType) {
@@ -213,17 +167,9 @@ public class MarginNewOrder {
         return this;
     }
 
-    public Long getRecvWindow() {
-        return recvWindow;
-    }
-
     public MarginNewOrder recvWindow(Long recvWindow) {
         this.recvWindow = recvWindow;
         return this;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
     }
 
     public MarginNewOrder timestamp(long timestamp) {

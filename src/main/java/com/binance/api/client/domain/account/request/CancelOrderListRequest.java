@@ -1,9 +1,13 @@
 package com.binance.api.client.domain.account.request;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 
+@Setter
+@Getter
 public class CancelOrderListRequest {
 
     private String symbol;
@@ -25,54 +29,6 @@ public class CancelOrderListRequest {
         this.symbol = symbol;
         this.timestamp = System.currentTimeMillis();
         this.recvWindow = BinanceApiConstants.DEFAULT_RECEIVING_WINDOW;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public Long getOrderListId() {
-        return orderListId;
-    }
-
-    public void setOrderListId(Long orderListId) {
-        this.orderListId = orderListId;
-    }
-
-    public String getListClientOrderId() {
-        return listClientOrderId;
-    }
-
-    public void setListClientOrderId(String listClientOrderId) {
-        this.listClientOrderId = listClientOrderId;
-    }
-
-    public String getNewClientOrderId() {
-        return newClientOrderId;
-    }
-
-    public void setNewClientOrderId(String newClientOrderId) {
-        this.newClientOrderId = newClientOrderId;
-    }
-
-    public Long getRecvWindow() {
-        return recvWindow;
-    }
-
-    public void setRecvWindow(Long recvWindow) {
-        this.recvWindow = recvWindow;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
     }
 
     @Override

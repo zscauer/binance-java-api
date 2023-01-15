@@ -1,24 +1,20 @@
 package com.binance.api.client.domain.account;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Max Borrow Query Result
  *
  * @see Withdraw
  */
+@Setter
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MaxBorrowableQueryResult {
 
   private String amount;
-
-  public String getAmount() {
-    return amount;
-  }
-
-  public void setAmount(String amount) {
-    this.amount = amount;
-  }
 
   @Override
   public String toString() {

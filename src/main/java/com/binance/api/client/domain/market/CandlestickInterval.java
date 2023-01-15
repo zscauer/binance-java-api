@@ -1,11 +1,13 @@
 package com.binance.api.client.domain.market;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
 
 /**
  * Kline/Candlestick intervals.
  * m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
  */
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public enum CandlestickInterval {
   ONE_MINUTE("1m"),
@@ -30,7 +32,4 @@ public enum CandlestickInterval {
     this.intervalId = intervalId;
   }
 
-  public String getIntervalId() {
-    return intervalId;
-  }
 }

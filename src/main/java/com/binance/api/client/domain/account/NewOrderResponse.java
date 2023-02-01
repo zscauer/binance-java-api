@@ -57,6 +57,10 @@ public class NewOrderResponse {
 
   private OrderSide side;
 
+  private int strategyId;
+
+  private int strategyType;
+
   // @JsonSetter(nulls = Nulls.AS_EMPTY)
   private List<Trade> fills;
 
@@ -79,6 +83,8 @@ public class NewOrderResponse {
         .append("timeInForce", timeInForce)
         .append("type", type)
         .append("side", side)
+        .append("strategyId", strategyId)
+        .append("strategyType", strategyType)
         .append("fills", Optional.ofNullable(fills).orElse(Collections.emptyList())
             .stream()
             .map(Object::toString)

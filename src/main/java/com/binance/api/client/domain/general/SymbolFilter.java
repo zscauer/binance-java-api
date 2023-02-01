@@ -3,6 +3,7 @@ package com.binance.api.client.domain.general;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Filters define trading rules on a symbol or an exchange. Filters come in two forms: symbol filters and exchange filters.
@@ -19,6 +20,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
+@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SymbolFilter {
 

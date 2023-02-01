@@ -1,6 +1,7 @@
 package com.binance.api.client.domain.market;
 
 import com.binance.api.client.constant.BinanceApiConstants;
+import com.binance.api.client.domain.Candle;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +17,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder()
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Candlestick {
+public class Candlestick implements Candle {
 
   private Long openTime;
 

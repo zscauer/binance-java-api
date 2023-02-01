@@ -145,12 +145,12 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 		final Call<NewOrderResponse> call;
 		if (order.getQuoteOrderQty() == null) {
 			call = binanceApiService.newOrder(order.getSymbol(), order.getSide(), order.getType(),
-					order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(),
+					order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(), order.getStrategyId(),
 					order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(), order.getRecvWindow(),
 					order.getTimestamp());
 		} else {
 			call = binanceApiService.newOrderQuoteQty(order.getSymbol(), order.getSide(), order.getType(),
-					order.getTimeInForce(), order.getQuoteOrderQty(), order.getPrice(), order.getNewClientOrderId(),
+					order.getTimeInForce(), order.getQuoteOrderQty(), order.getPrice(), order.getNewClientOrderId(), order.getStrategyId(),
 					order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(), order.getRecvWindow(),
 					order.getTimestamp());
 		}
@@ -160,7 +160,7 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	@Override
 	public void newOrderTest(NewOrder order) {
 		executeSync(binanceApiService.newOrderTest(order.getSymbol(), order.getSide(), order.getType(),
-				order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(),
+				order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(), order.getStrategyId(),
 				order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(), order.getRecvWindow(),
 				order.getTimestamp()));
 	}

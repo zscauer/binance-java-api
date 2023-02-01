@@ -91,7 +91,7 @@ public interface BinanceApiService {
     @POST("/api/v3/order")
     Call<NewOrderResponse> newOrder(@Query("symbol") String symbol, @Query("side") OrderSide side, @Query("type") OrderType type,
                                     @Query("timeInForce") TimeInForce timeInForce, @Query("quantity") String quantity, @Query("price") String price,
-                                    @Query("newClientOrderId") String newClientOrderId, @Query("stopPrice") String stopPrice,
+                                    @Query("newClientOrderId") String newClientOrderId, @Query("strategyId") Integer strategyId, @Query("stopPrice") String stopPrice,
                                     @Query("icebergQty") String icebergQty, @Query("newOrderRespType") NewOrderResponseType newOrderRespType,
                                     @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
@@ -99,7 +99,7 @@ public interface BinanceApiService {
     @POST("/api/v3/order")
     Call<NewOrderResponse> newOrderQuoteQty(@Query("symbol") String symbol, @Query("side") OrderSide side, @Query("type") OrderType type,
                                             @Query("timeInForce") TimeInForce timeInForce, @Query("quoteOrderQty") String quoteOrderQty, @Query("price") String price,
-                                            @Query("newClientOrderId") String newClientOrderId, @Query("stopPrice") String stopPrice,
+                                            @Query("newClientOrderId") String newClientOrderId, @Query("strategyId") Integer strategyId, @Query("stopPrice") String stopPrice,
                                             @Query("icebergQty") String icebergQty, @Query("newOrderRespType") NewOrderResponseType newOrderRespType,
                                             @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
@@ -107,7 +107,7 @@ public interface BinanceApiService {
     @POST("/api/v3/order/test")
     Call<Void> newOrderTest(@Query("symbol") String symbol, @Query("side") OrderSide side, @Query("type") OrderType type,
                             @Query("timeInForce") TimeInForce timeInForce, @Query("quantity") String quantity, @Query("price") String price,
-                            @Query("newClientOrderId") String newClientOrderId, @Query("stopPrice") String stopPrice,
+                            @Query("newClientOrderId") String newClientOrderId, @Query("strategyId") Integer strategyId, @Query("stopPrice") String stopPrice,
                             @Query("icebergQty") String icebergQty, @Query("newOrderRespType") NewOrderResponseType newOrderRespType,
                             @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 

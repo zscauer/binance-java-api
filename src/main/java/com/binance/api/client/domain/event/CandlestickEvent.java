@@ -1,6 +1,7 @@
 package com.binance.api.client.domain.event;
 
 import com.binance.api.client.constant.BinanceApiConstants;
+import com.binance.api.client.domain.Candle;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -17,7 +18,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @JsonDeserialize(using = CandlestickEventDeserializer.class)
 @JsonSerialize(using = CandlestickEventSerializer.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CandlestickEvent {
+public class CandlestickEvent implements Candle {
 
   private String eventType;
 

@@ -56,6 +56,16 @@ public class NewOrder {
   private String newClientOrderId;
 
   /**
+   * A unique id of the strategy.
+   */
+  private int strategyId;
+
+  /**
+   * The value cannot be less than 1000000.
+   */
+  private int strategyType;
+
+  /**
    * Used with stop orders.
    */
   private String stopPrice;
@@ -88,13 +98,14 @@ public class NewOrder {
   /**
    * Creates a new order with all required parameters.
    */
-  public NewOrder(String symbol, OrderSide side, OrderType type, TimeInForce timeInForce, String quantity) {
+  public NewOrder(String symbol, OrderSide side, OrderType type, TimeInForce timeInForce, String quantity, int strategyId) {
     this.symbol = symbol;
     this.side = side;
     this.type = type;
     this.timeInForce = timeInForce;
     this.quantity = quantity;
     this.newOrderRespType = NewOrderResponseType.RESULT;
+    this.strategyId = strategyId;
     this.timestamp = System.currentTimeMillis();
     this.recvWindow = BinanceApiConstants.DEFAULT_RECEIVING_WINDOW;
   }
@@ -102,8 +113,8 @@ public class NewOrder {
   /**
    * Creates a new order with all required parameters plus price, which is optional for MARKET orders.
    */
-  public NewOrder(String symbol, OrderSide side, OrderType type, TimeInForce timeInForce, String quantity, String price) {
-    this(symbol, side, type, timeInForce, quantity);
+  public NewOrder(String symbol, OrderSide side, OrderType type, TimeInForce timeInForce, String quantity, String price, int strategyId) {
+    this(symbol, side, type, timeInForce, quantity, strategyId);
     this.price = price;
   }
 
@@ -147,6 +158,16 @@ public class NewOrder {
     return this;
   }
 
+  public NewOrder strategyId(int strategyId) {
+    this.strategyId = strategyId;
+    return this;
+  }
+
+  public NewOrder strategyType(int strategyType) {
+    this.strategyType = strategyType;
+    return this;
+  }
+
   public NewOrder stopPrice(String stopPrice) {
     this.stopPrice = stopPrice;
     return this;
@@ -182,8 +203,8 @@ public class NewOrder {
    *
    * @return a new order which is pre-configured with MARKET as the order type and BUY as the order side.
    */
-  public static NewOrder marketBuy(String symbol, String quantity) {
-    return new NewOrder(symbol, OrderSide.BUY, OrderType.MARKET, null, quantity);
+  public static NewOrder marketBuy(String symbol, String quantity, int strategyId) {
+    return new NewOrder(symbol, OrderSide.BUY, OrderType.MARKET, null, quantity, strategyId);
   }
 
   /**
@@ -191,8 +212,8 @@ public class NewOrder {
    *
    * @return a new order which is pre-configured with MARKET as the order type and SELL as the order side.
    */
-  public static NewOrder marketSell(String symbol, String quantity) {
-    return new NewOrder(symbol, OrderSide.SELL, OrderType.MARKET, null, quantity);
+  public static NewOrder marketSell(String symbol, String quantity, int strategyId) {
+    return new NewOrder(symbol, OrderSide.SELL, OrderType.MARKET, null, quantity, strategyId);
   }
 
   /**
@@ -200,8 +221,8 @@ public class NewOrder {
    *
    * @return a new order which is pre-configured with LIMIT as the order type and BUY as the order side.
    */
-  public static NewOrder limitBuy(String symbol, TimeInForce timeInForce, String quantity, String price) {
-    return new NewOrder(symbol, OrderSide.BUY, OrderType.LIMIT, timeInForce, quantity, price);
+  public static NewOrder limitBuy(String symbol, TimeInForce timeInForce, String quantity, String price, int strategyId) {
+    return new NewOrder(symbol, OrderSide.BUY, OrderType.LIMIT, timeInForce, quantity, price, strategyId);
   }
 
   /**
@@ -209,8 +230,8 @@ public class NewOrder {
    *
    * @return a new order which is pre-configured with LIMIT as the order type and SELL as the order side.
    */
-  public static NewOrder limitSell(String symbol, TimeInForce timeInForce, String quantity, String price) {
-    return new NewOrder(symbol, OrderSide.SELL, OrderType.LIMIT, timeInForce, quantity, price);
+  public static NewOrder limitSell(String symbol, TimeInForce timeInForce, String quantity, String price, int strategyId) {
+    return new NewOrder(symbol, OrderSide.SELL, OrderType.LIMIT, timeInForce, quantity, price, strategyId);
   }
 
   @Override

@@ -63,6 +63,30 @@ public class OrderTradeUpdateEvent {
   private String price;
 
   /**
+   * Stop price.
+   */
+  @JsonProperty("P")
+  private Double stopPrice;
+
+  /**
+   * Trailing Delta; This is only visible if the order was a trailing stop order.
+   */
+  @JsonProperty("d")
+  private Integer trailingDelta;
+
+  /**
+   * Iceberg quantity.
+   */
+  @JsonProperty("F")
+  private Double iceberqQuantity;
+
+  /**
+   * Original client order ID; This is the ID of the order being canceled.
+   */
+  @JsonProperty("C")
+  private String originalClientOrderId;
+
+  /**
    * Type of execution.
    */
   @JsonProperty("x")
@@ -129,6 +153,24 @@ public class OrderTradeUpdateEvent {
   private Long tradeId;
 
   /**
+   * Prevented Match Id; This is only visible if the order expire due to STP trigger.
+   */
+  @JsonProperty("v")
+  private Integer preventMatchId;
+
+  /**
+   * Is the order on the book?
+   */
+  @JsonProperty("w")
+  private boolean isOrderOnBook;
+
+  /**
+   * Is this trade the maker side?
+   */
+  @JsonProperty("m")
+  private boolean isMakerSide;
+
+  /**
    * Order creation time.
    */
   @JsonProperty("O")
@@ -152,6 +194,30 @@ public class OrderTradeUpdateEvent {
   @JsonProperty("Q")
   private String quoteOrderQty;
 
+  /**
+   * Trailing Time; This is only visible if the trailing stop order has been activated.
+   */
+  @JsonProperty("D")
+  private Long trailingTime;
+
+  /**
+   * Strategy ID; This is only visible if the strategyId parameter was provided upon order placement
+   */
+  @JsonProperty("j")
+  private Integer strategyId;
+
+  /**
+   * Strategy Type; This is only visible if the strategyId parameter was provided upon order placement
+   */
+  @JsonProperty("J")
+  private Integer strategyType;
+
+  /**
+   * Working Time; This is only visible if the order has been placed on the book.
+   */
+  @JsonProperty("W")
+  private Long workingTime;
+
   @Override
   public String toString() {
     return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
@@ -164,6 +230,10 @@ public class OrderTradeUpdateEvent {
         .append("timeInForce", timeInForce)
         .append("originalQuantity", originalQuantity)
         .append("price", price)
+        .append("stopPrice", stopPrice)
+        .append("trailingDelta", trailingDelta)
+        .append("iceberqQuantity", iceberqQuantity)
+        .append("originalClientOrderId", originalClientOrderId)
         .append("executionType", executionType)
         .append("orderStatus", orderStatus)
         .append("orderRejectReason", orderRejectReason)
@@ -175,10 +245,17 @@ public class OrderTradeUpdateEvent {
         .append("commissionAsset", commissionAsset)
         .append("orderTradeTime", orderTradeTime)
         .append("tradeId", tradeId)
+        .append("preventMatchId", preventMatchId)
+        .append("isOrderOnBook", isOrderOnBook)
+        .append("isMakerSide", isMakerSide)
         .append("orderCreationTime", orderCreationTime)
         .append("cumulativeQuoteQty", cumulativeQuoteQty)
         .append("lastQuoteQty", lastQuoteQty)
         .append("quoteOrderQty", quoteOrderQty)
+        .append("trailingTime", quoteOrderQty)
+        .append("strategyId", strategyId)
+        .append("strategyType", strategyType)
+        .append("workingTime", workingTime)
         .toString();
   }
 }

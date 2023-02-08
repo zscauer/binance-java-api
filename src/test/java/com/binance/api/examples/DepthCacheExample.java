@@ -7,6 +7,7 @@ import com.binance.api.client.BinanceApiWebSocketClient;
 import com.binance.api.client.domain.event.DepthEvent;
 import com.binance.api.client.domain.market.OrderBook;
 import com.binance.api.client.domain.market.OrderBookEntry;
+import okhttp3.OkHttpClient;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class DepthCacheExample {
   public DepthCacheExample(String symbol) {
     this.symbol = symbol;
 
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     this.wsClient = factory.newWebSocketClient();
     this.restClient = factory.newRestClient();
 

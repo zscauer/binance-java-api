@@ -4,6 +4,7 @@ import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.BinanceApiWebSocketClient;
 import com.binance.api.client.domain.market.AggTrade;
+import okhttp3.OkHttpClient;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +30,7 @@ public class AggTradesCacheExample {
    * Initializes the aggTrades cache by using the REST API.
    */
   private void initializeAggTradesCache(String symbol) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiRestClient client = factory.newRestClient();
     List<AggTrade> aggTrades = client.getAggTrades(symbol.toUpperCase());
 
@@ -43,7 +44,7 @@ public class AggTradesCacheExample {
    * Begins streaming of agg trades events.
    */
   private void startAggTradesEventStreaming(String symbol) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiWebSocketClient client = factory.newWebSocketClient();
 
     client.onAggTradeEvent(symbol.toLowerCase(), response -> {

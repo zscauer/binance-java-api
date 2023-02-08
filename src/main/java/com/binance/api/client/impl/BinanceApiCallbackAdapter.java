@@ -31,6 +31,9 @@ public class BinanceApiCallbackAdapter<T> implements Callback<T> {
         // It is important to NOT treat this as a failure; the execution status is UNKNOWN and could have been a success.
         return;
       }
+      System.out.println("Headers from retrofit response:");
+      System.out.println("x-mbx-used-weight: " + response.headers().get("x-mbx-used-weight"));
+      System.out.println("x-mbx-used-weight-1m: " + response.headers().get("x-mbx-used-weight-1m"));
       try {
         BinanceApiError apiError = getBinanceApiError(response);
         onFailure(call, new BinanceApiException(apiError));
@@ -43,6 +46,7 @@ public class BinanceApiCallbackAdapter<T> implements Callback<T> {
   @Override
   public void onFailure(Call<T> call, Throwable throwable) {
     if (throwable instanceof BinanceApiException) {
+      System.out.println("throwable instanceof BinanceApiException in BinanceApiCallbackAdapter");
       callback.onFailure(throwable);
     } else {
       callback.onFailure(new BinanceApiException(throwable));

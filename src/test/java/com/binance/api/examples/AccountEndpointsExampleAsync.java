@@ -3,6 +3,7 @@ package com.binance.api.examples;
 import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.domain.account.Account;
+import okhttp3.OkHttpClient;
 
 /**
  * Examples on how to get account information.
@@ -10,7 +11,7 @@ import com.binance.api.client.domain.account.Account;
 public class AccountEndpointsExampleAsync {
 
   public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET", new OkHttpClient());
     BinanceApiAsyncRestClient client = factory.newAsyncRestClient();
 
     // Get account balances (async)

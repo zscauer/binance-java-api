@@ -5,6 +5,7 @@ import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.BinanceApiWebSocketClient;
 import com.binance.api.client.domain.market.Candlestick;
 import com.binance.api.client.domain.market.CandlestickInterval;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class CandlesticksCacheExample {
    * Initializes the candlestick cache by using the REST API.
    */
   private void initializeCandlestickCache(String symbol, CandlestickInterval interval) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiRestClient client = factory.newRestClient();
     List<Candlestick> candlestickBars = client.getCandlestickBars(symbol.toUpperCase(), interval);
 
@@ -43,7 +44,7 @@ public class CandlesticksCacheExample {
    * Begins streaming of depth events.
    */
   private void startCandlestickEventStreaming(String symbol, CandlestickInterval interval) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiWebSocketClient client = factory.newWebSocketClient();
 
     client.onCandlestickEvent(symbol.toLowerCase(), interval, response -> {

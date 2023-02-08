@@ -6,6 +6,7 @@ import com.binance.api.client.domain.TimeInForce;
 import com.binance.api.client.domain.account.request.CancelOrderRequest;
 import com.binance.api.client.domain.account.request.OrderRequest;
 import com.binance.api.client.domain.account.request.OrderStatusRequest;
+import okhttp3.OkHttpClient;
 
 import static com.binance.api.client.domain.account.MarginNewOrder.limitBuy;
 
@@ -15,7 +16,7 @@ import static com.binance.api.client.domain.account.MarginNewOrder.limitBuy;
 public class MarginOrdersExampleAsync {
 
     public static void main(String[] args) {
-        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
+        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET", new OkHttpClient());
         BinanceApiAsyncMarginRestClient client = factory.newAsyncMarginRestClient();
 
         // Getting list of open orders

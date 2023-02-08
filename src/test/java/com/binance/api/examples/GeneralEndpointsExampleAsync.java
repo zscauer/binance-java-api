@@ -5,6 +5,7 @@ import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.domain.general.FilterType;
 import com.binance.api.client.domain.general.SymbolFilter;
 import com.binance.api.client.domain.general.SymbolInfo;
+import okhttp3.OkHttpClient;
 
 /**
  * Examples on how to use the general endpoints.
@@ -12,7 +13,7 @@ import com.binance.api.client.domain.general.SymbolInfo;
 public class GeneralEndpointsExampleAsync {
 
   public static void main(String[] args) throws InterruptedException {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiAsyncRestClient client = factory.newAsyncRestClient();
 
     // Test connectivity

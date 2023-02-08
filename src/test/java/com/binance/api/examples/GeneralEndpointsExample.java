@@ -7,6 +7,7 @@ import com.binance.api.client.domain.general.ExchangeInfo;
 import com.binance.api.client.domain.general.FilterType;
 import com.binance.api.client.domain.general.SymbolFilter;
 import com.binance.api.client.domain.general.SymbolInfo;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public class GeneralEndpointsExample {
 
   public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiRestClient client = factory.newRestClient();
 
     // Test connectivity

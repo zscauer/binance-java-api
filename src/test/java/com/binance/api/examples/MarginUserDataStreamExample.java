@@ -6,6 +6,7 @@ import com.binance.api.client.BinanceApiWebSocketClient;
 import com.binance.api.client.domain.event.AccountUpdateEvent;
 import com.binance.api.client.domain.event.OrderTradeUpdateEvent;
 import com.binance.api.client.domain.event.UserDataUpdateEvent.UserDataUpdateEventType;
+import okhttp3.OkHttpClient;
 
 /**
  * User data stream endpoints examples.
@@ -16,7 +17,7 @@ import com.binance.api.client.domain.event.UserDataUpdateEvent.UserDataUpdateEve
 public class MarginUserDataStreamExample {
 
   public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET", new OkHttpClient());
     BinanceApiMarginRestClient client = factory.newMarginRestClient();
 
     // First, we obtain a listenKey which is required to interact with the user data stream

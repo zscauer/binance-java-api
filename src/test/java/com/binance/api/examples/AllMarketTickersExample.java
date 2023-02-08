@@ -2,6 +2,7 @@ package com.binance.api.examples;
 
 import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.BinanceApiWebSocketClient;
+import okhttp3.OkHttpClient;
 
 /**
  * All market tickers channel examples.
@@ -11,7 +12,7 @@ import com.binance.api.client.BinanceApiWebSocketClient;
 public class AllMarketTickersExample {
 
   public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiWebSocketClient client = factory.newWebSocketClient();
 
     client.onAllMarketTickersEvent(event -> {

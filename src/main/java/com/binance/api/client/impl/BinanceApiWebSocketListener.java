@@ -51,8 +51,9 @@ public class BinanceApiWebSocketListener<T> extends WebSocketListener {
 
   @Override
   public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+    System.out.printf("onFailure() of BinanceApiWebSocketListener. Closing = %s.\nThread: %s\nWebSocket:%s", closing, Thread.currentThread(), webSocket);
     if (!closing) {
-      callback.onFailure(t);
+      callback.onFailure(t, response);
     }
   }
 }

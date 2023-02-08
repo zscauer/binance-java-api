@@ -4,6 +4,7 @@ import com.binance.api.client.BinanceApiError;
 import com.binance.api.client.config.BinanceApiConfig;
 import com.binance.api.client.exception.BinanceApiException;
 import com.binance.api.client.security.AuthenticationInterceptor;
+import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -16,6 +17,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,18 +25,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class BinanceApiServiceGenerator {
 
-    private static final OkHttpClient sharedClient;
+    private static OkHttpClient sharedClient;
     private static final Converter.Factory converterFactory = JacksonConverterFactory.create();
 
-    static {
-        Dispatcher dispatcher = new Dispatcher();
-        dispatcher.setMaxRequestsPerHost(500);
-        dispatcher.setMaxRequests(500);
-        sharedClient = new OkHttpClient.Builder()
-                .dispatcher(dispatcher)
-                .pingInterval(20, TimeUnit.SECONDS)
-                .build();
-    }
+//    static {
+//        Dispatcher dispatcher = new Dispatcher();
+//        dispatcher.setMaxRequestsPerHost(500);
+//        dispatcher.setMaxRequests(500);
+//        sharedClient = new OkHttpClient.Builder()
+//                .dispatcher(dispatcher)
+//                .pingInterval(20, TimeUnit.SECONDS)
+//                .build();
+//    }
 
     @SuppressWarnings("unchecked")
     private static final Converter<ResponseBody, BinanceApiError> errorBodyConverter =
@@ -109,5 +111,11 @@ public class BinanceApiServiceGenerator {
      */
     public static OkHttpClient getSharedClient() {
         return sharedClient;
+    }
+
+    public static void setSharedClient(OkHttpClient client) {
+        if (sharedClient == null) {
+            sharedClient = client;
+        }
     }
 }

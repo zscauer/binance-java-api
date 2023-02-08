@@ -5,6 +5,7 @@ import com.binance.api.client.BinanceApiMarginRestClient;
 import com.binance.api.client.domain.account.MarginTransaction;
 import com.binance.api.client.domain.account.MaxBorrowableQueryResult;
 import com.binance.api.client.domain.account.RepayQueryResult;
+import okhttp3.OkHttpClient;
 
 /**
  * Examples on how to get margin account information.
@@ -12,7 +13,7 @@ import com.binance.api.client.domain.account.RepayQueryResult;
 public class MarginAccountEndpointsLoanQueryExample {
 
     public static void main(String[] args) {
-        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
+        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET", new OkHttpClient());
         BinanceApiMarginRestClient client = factory.newMarginRestClient();
         MaxBorrowableQueryResult usdt = client.queryMaxBorrowable("USDT");
         System.out.println(usdt.getAmount());

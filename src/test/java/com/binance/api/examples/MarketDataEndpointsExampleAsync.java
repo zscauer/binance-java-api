@@ -9,6 +9,7 @@ import com.binance.api.client.domain.market.OrderBook;
 import com.binance.api.client.domain.market.TickerPrice;
 import com.binance.api.client.domain.market.TickerStatistics;
 import com.binance.api.client.exception.BinanceApiException;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
 public class MarketDataEndpointsExampleAsync {
 
   public static void main(String[] args) {
-    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
+    BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(new OkHttpClient());
     BinanceApiAsyncRestClient client = factory.newAsyncRestClient();
 
     // Getting depth of a symbol (async)

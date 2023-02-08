@@ -2,7 +2,10 @@ package com.binance.api.client;
 
 import com.binance.api.client.impl.*;
 import com.binance.api.client.config.BinanceApiConfig;
+import okhttp3.OkHttpClient;
+
 import static com.binance.api.client.impl.BinanceApiServiceGenerator.getSharedClient;
+import static com.binance.api.client.impl.BinanceApiServiceGenerator.setSharedClient;
 
 /**
  * A factory for creating BinanceApi client objects.
@@ -25,7 +28,8 @@ public class BinanceApiClientFactory {
    * @param apiKey the API key
    * @param secret the Secret
    */
-  private BinanceApiClientFactory(String apiKey, String secret) {
+  private BinanceApiClientFactory(String apiKey, String secret, OkHttpClient client) {
+    setSharedClient(client);
     this.apiKey = apiKey;
     this.secret = secret;
     BinanceApiConfig.useTestnet = false;
@@ -40,8 +44,8 @@ public class BinanceApiClientFactory {
    * @param useTestnet true if endpoint is spot test network URL; false if endpoint is production spot API URL.
    * @param useTestnetStreaming true for spot test network websocket streaming; false for no streaming.
    */
-  private BinanceApiClientFactory(String apiKey, String secret, boolean useTestnet, boolean useTestnetStreaming) {
-      this(apiKey, secret);
+  private BinanceApiClientFactory(String apiKey, String secret, boolean useTestnet, boolean useTestnetStreaming, OkHttpClient client) {
+      this(apiKey, secret, client);
       if (useTestnet) {
         BinanceApiConfig.useTestnet = true;
         BinanceApiConfig.useTestnetStreaming = useTestnetStreaming; }
@@ -55,8 +59,8 @@ public class BinanceApiClientFactory {
    *
    * @return the binance api client factory
    */
-  public static BinanceApiClientFactory newInstance(String apiKey, String secret) {
-    return new BinanceApiClientFactory(apiKey, secret);
+  public static BinanceApiClientFactory newInstance(String apiKey, String secret, OkHttpClient client) {
+    return new BinanceApiClientFactory(apiKey, secret, client);
   }
 
   /**
@@ -69,8 +73,8 @@ public class BinanceApiClientFactory {
    *
    * @return the binance api client factory.
    */
-    public static BinanceApiClientFactory newInstance(String apiKey, String secret, boolean useTestnet, boolean useTestnetStreaming) {
-      return new BinanceApiClientFactory(apiKey, secret, useTestnet, useTestnetStreaming);
+    public static BinanceApiClientFactory newInstance(String apiKey, String secret, boolean useTestnet, boolean useTestnetStreaming, OkHttpClient client) {
+      return new BinanceApiClientFactory(apiKey, secret, useTestnet, useTestnetStreaming, client);
   }
 
   /**
@@ -78,8 +82,8 @@ public class BinanceApiClientFactory {
    *
    * @return the binance api client factory
    */
-  public static BinanceApiClientFactory newInstance() {
-    return new BinanceApiClientFactory(null, null);
+  public static BinanceApiClientFactory newInstance(OkHttpClient client) {
+    return new BinanceApiClientFactory(null, null, client);
   }
 
   /**
@@ -90,8 +94,8 @@ public class BinanceApiClientFactory {
    *
    * @return the binance api client factory.
    */
-  public static BinanceApiClientFactory newInstance(boolean useTestnet, boolean useTestnetStreaming) {
-    return new BinanceApiClientFactory(null, null, useTestnet, useTestnetStreaming);
+  public static BinanceApiClientFactory newInstance(boolean useTestnet, boolean useTestnetStreaming, OkHttpClient client) {
+    return new BinanceApiClientFactory(null, null, useTestnet, useTestnetStreaming, client);
   }
 
   /**

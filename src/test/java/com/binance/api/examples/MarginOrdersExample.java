@@ -11,6 +11,7 @@ import com.binance.api.client.domain.account.request.CancelOrderResponse;
 import com.binance.api.client.domain.account.request.OrderRequest;
 import com.binance.api.client.domain.account.request.OrderStatusRequest;
 import com.binance.api.client.exception.BinanceApiException;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ import static com.binance.api.client.domain.account.MarginNewOrder.limitBuy;
 public class MarginOrdersExample {
 
     public static void main(String[] args) {
-        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
+        BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET", new OkHttpClient());
         BinanceApiMarginRestClient client = factory.newMarginRestClient();
 
         // Getting list of open orders

@@ -10,6 +10,8 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 /**
  * Binance API WebSocket listener.
@@ -51,7 +53,7 @@ public class BinanceApiWebSocketListener<T> extends WebSocketListener {
 
   @Override
   public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-    System.out.printf("onFailure() of BinanceApiWebSocketListener. Closing = %s.\nThread: %s\nWebSocket:%s", closing, Thread.currentThread(), webSocket);
+    System.out.printf("onFailure() of BinanceApiWebSocketListener at %s. Closing = %s.\nResponse: %s\nThrowable:%s", LocalDateTime.now(ZoneId.systemDefault()), closing, response, t);
     if (!closing) {
       callback.onFailure(t, response);
     }

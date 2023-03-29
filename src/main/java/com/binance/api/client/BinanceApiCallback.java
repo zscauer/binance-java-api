@@ -1,5 +1,6 @@
 package com.binance.api.client;
 
+import com.binance.api.client.exception.BinanceApiException;
 import okhttp3.Response;
 
 /**
@@ -23,8 +24,12 @@ public interface BinanceApiCallback<T> {
      * @param cause the cause of the failure
      */
     default void onFailure(Throwable cause) {
-        System.out.println("Exception in default onFailure(Throwable) method of BinanceApiCallback.\n" + cause.getMessage());
-        cause.printStackTrace(System.err);
+        System.out.printf("Exception in default onFailure(Throwable) method of BinanceApiCallback: %s", cause.getMessage());
+        if (cause instanceof BinanceApiException exception) {
+            System.out.printf("Error code: %s", exception.getError().getCode());
+        } else {
+            cause.printStackTrace(System.err);
+        }
     }
 
     default void onFailure(Throwable cause, Response response) {

@@ -45,8 +45,8 @@ public class BinanceApiCallbackAdapter<T> implements Callback<T> {
 
   @Override
   public void onFailure(Call<T> call, Throwable throwable) {
+    System.out.printf("throwable instanceof %s in BinanceApiCallbackAdapter", throwable.getClass());
     if (throwable instanceof BinanceApiException) {
-      System.out.println("throwable instanceof BinanceApiException in BinanceApiCallbackAdapter");
       callback.onFailure(throwable);
     } else {
       callback.onFailure(new BinanceApiException(throwable));

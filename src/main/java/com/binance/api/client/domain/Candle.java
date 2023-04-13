@@ -20,4 +20,7 @@ public interface Candle {
 
     Long getNumberOfTrades();
 
+    String getTakerBuyBaseAssetVolume();
+
+    String getTakerBuyQuoteAssetVolume();
 }
